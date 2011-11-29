@@ -60,7 +60,9 @@
           0 node
           1 (:name node)
           2 (date2s (:start node))""
-          3 (date2s (:end node)))))))
+          3 (date2s (:end node))))
+      (isCellEditable[row, col] true)
+          )))
 
 (defn run[]
   (let [f (new JFrame)]

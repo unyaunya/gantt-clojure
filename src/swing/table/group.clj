@@ -1,6 +1,9 @@
 (ns swing.table.group
-  (:import  (javax.swing JPanel JCheckBox JLabel JButton JToggleButton ImageIcon)
-            (javax.swing.table DefaultTableModel)))
+  (:import  (javax.swing JPanel JCheckBox JLabel JButton
+                         JToggleButton ImageIcon)
+            (javax.swing.table DefaultTableModel)
+            (java.awt.event MouseAdapter)
+            ))
 
 ;------------------------------------------------------------------------------
 ; swing.table.AbstractTreeTableModel
@@ -62,7 +65,8 @@
     (.setBounds button 0 0  (.getIconWidth  (.getIcon button))
                           (.getIconHeight (.getIcon button)))
     (.setBounds label (.width (.getSize button)) 0 200 32)
-    ;(.addActionListener )
+    (.addMouseListener button (proxy [MouseAdapter][]
+      (mouseClicked[e] (println e))))
     (println (.getBounds button))
     (println (.getBounds label))
     panel))
