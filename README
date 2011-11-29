@@ -1,6 +1,15 @@
 # gantt
 
-FIXME: write description
+It might be some gantt chart application.
+
+I'm writing treetable part now in clojure.
+
+To run treetable sample, type as below:
+
+c:/\>lein repl
+
+user=>(use 'swing.sample)
+user=>(run)
 
 ## Usage
 

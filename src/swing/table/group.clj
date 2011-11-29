@@ -37,6 +37,7 @@
 
 ;------------------------------------------------------------------------------
 ; swing.table.GroupColumnEditorRenderer
+;   TreeTable用のCellRenderer,CellEditor
 ;------------------------------------------------------------------------------
 (defn get-icon[resource-name]
   (ImageIcon. (.getResource
@@ -45,7 +46,7 @@
 (def plus-icon (get-icon "swing/img/plus_button.png"))
 (def minus-icon (get-icon "swing/img/minus_button.png"))
 (def empty-icon (get-icon "swing/img/empty.png"))
-  
+
 (defn gcr-renderer[]
   (println "gcr-renderer3")
   (let [panel (new JPanel)
@@ -61,6 +62,7 @@
     (.setBounds button 0 0  (.getIconWidth  (.getIcon button))
                           (.getIconHeight (.getIcon button)))
     (.setBounds label (.width (.getSize button)) 0 200 32)
+    ;(.addActionListener )
     (println (.getBounds button))
     (println (.getBounds label))
     panel))
@@ -93,6 +95,7 @@
   (if-let [state (.state table)] (:gce @state)))
 (defn gt-model-adapter[this model])
 (defn gt-setModel[this model]
+  "第１カラムのCellRenderer,CellEditorを、TreeTable用のものにセットする。"
   (.setModelSuper this model)
   (let [cm  (.getColumnModel this)
         tc0 (when (> (.getColumnCount cm) 0) (.getColumn cm 0))]

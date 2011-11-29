@@ -7,9 +7,9 @@
             (swing.table GroupableTable AbstractTreeTableModel)
             ))
 
-(def *frame* (atom nil))
-(def *js-pane* (atom nil))
-(def *table* (atom nil))
+(def ^:dynamic *frame* (atom nil))
+(def ^:dynamic *js-pane* (atom nil))
+(def ^:dynamic *table* (atom nil))
 
 (def *menu* [
   ["ファイル"
